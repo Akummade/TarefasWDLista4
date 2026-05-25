@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+         body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        #delete{
+            background-color: #4a90e2;
+            border-radius: 10px ;
+            height: 30px;
+            align-content: center;
+            margin-left: 10px;
+            color: white;
+            padding: 10px;
+        }
+        #delete:hover{
+            cursor: pointer;
+            
+        }
+        #compras{
+            background: white;
+            width: 320px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+            margin-right: 30px;
+        }
+        
+        #compras{
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        #listadecompras{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #listadecompras li{
+            background: #f1f3f6;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            transition: 0.2s;
+            min-height: 20px;
+        }
+        
+        #listadecompras li:hover{
+            background: #dfe6ee;
+        }
+        
+        #produtos{
+            background: white;
+            width: 320px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        #produtos{
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        #listadeprodutos{
+            padding-left: 20px;
+        }
+        
+        #listadeprodutos li{
+            background: #4a90e2;
+            color: white;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        #listadeprodutos li:hover{
+            background: #357abd;
+            transform: scale(1.03);
+        }
+        </style>
+    </head>
+    <body>
+        <script>
+            let x = 0;
+            let lis;
+
+            function selecionarProduto(produto) {
+                let itemat = produto.innerHTML;
+                lis = document.getElementById("listadecompras").getElementsByTagName("li");
+
+                if (x < lis.length) {
+                    lis[x].innerHTML = itemat;
+                    x++;
+                }
+               
+            }
+            function excluir() {
+                for(i=0 ; i<lis.length; i++){
+                    lis[i].innerHTML = "";
+                }
+               
+            }
+            
+        </script>
+        <div id ="compras">
+            <ul id="listadecompras">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div id="produtos">
+            <ol id="listadeprodutos">
+                <li onclick="selecionarProduto(this)">Arroz</li>
+                <li onclick="selecionarProduto(this)">Feijão</li>
+                <li onclick="selecionarProduto(this)">Macarrão</li>
+                <li onclick="selecionarProduto(this)">Óleo de soja</li>
+                <li onclick="selecionarProduto(this)">Açúcar</li>
+                <li onclick="selecionarProduto(this)">Sal</li>
+                <li onclick="selecionarProduto(this)">Farinha de trigo</li>
+                <li onclick="selecionarProduto(this)">Leite em pó</li>
+                <li onclick="selecionarProduto(this)">Café</li>
+                <li onclick="selecionarProduto(this)">Molho de tomate</li>
+            </ol>
+        </div>
+        <div onclick="excluir()" id = "delete"><b>Deletar lista</b></div>
+    </body>
+</html>

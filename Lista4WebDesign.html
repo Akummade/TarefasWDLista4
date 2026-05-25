@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+    </head>
+    <body>
+        <div id="formulário" class="painel">
+            <div class="painel-cab">Meus feitiços</div>
+                <div class="painel-bd">
+                Feitiços: <input type="text">
+                Nível: <input type="text">
+                <span class="btn" onclick="inserir()">Adicionar</span>
+                </div>
+        </div>
+
+        <div class="res">
+        <div class="painel-res">
+        <div class="panel-res-bd">
+        <table class="table" id="tabela">
+            <tr><th>Feitiço</th><th>Nível</th></tr>
+        </table>
+        </div>
+        </div>
+        </div>
+        <script>
+            function inserir(){
+                let feit = document.getElementsByTagName("input")[0].value;
+                let nivel = document.getElementsByTagName("input")[1].value;
+
+                let vet =document.getElementByTagName("th");
+                vet[0].innerHTML.appendChild(feit);
+            }
+        </script>
+    </body>
+</html>
