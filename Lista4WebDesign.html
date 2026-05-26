@@ -1,7 +1,105 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: #1e1e2f;
+            margin: 0;
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #formulário{
+            background: #2a2a40;
+            width: 420px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+        }
+        
+        .painel-cab{
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #9d7bff;
+        }
+        
+        .painel-bd{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        input{
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #3a3a55;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        input:focus{
+            border: 2px solid #9d7bff;
+        }
+        
+        .btn{
+            background: #9d7bff;
+            padding: 12px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        
+        .btn:hover{
+            background: #7d5cff;
+            transform: scale(1.03);
+        }
+        
+        .res{
+            width: 420px;
+        }
+        
+        .painel-res{
+            background: #2a2a40;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        th{
+            background: #9d7bff;
+            padding: 15px;
+            font-size: 18px;
+        }
+        
+        td{
+            background: #3a3a55;
+            padding: 12px;
+            text-align: center;
+            border-top: 1px solid #555;
+        }
+        
+        tr:hover td{
+            background: #4a4a70;
+        }
+    </style>
 
     </head>
     <body>
@@ -24,13 +122,25 @@
         </div>
         </div>
         <script>
-            function inserir(){
-                let feit = document.getElementsByTagName("input")[0].value;
-                let nivel = document.getElementsByTagName("input")[1].value;
+            function inserir() {
 
-                let vet =document.getElementByTagName("th");
-                vet[0].innerHTML.appendChild(feit);
-            }
+            let feit = document.getElementsByTagName("input")[0].value;
+            let nivel = document.getElementsByTagName("input")[1].value;
+
+            let tabela = document.getElementById("tabela");
+            let linha = document.createElement("tr");
+
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+
+            td1.innerHTML = feit;
+            td2.innerHTML = nivel;
+
+            linha.appendChild(td1);
+            linha.appendChild(td2);
+
+            tabela.appendChild(linha);
+        }
         </script>
     </body>
 </html>
