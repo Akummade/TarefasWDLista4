@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <input type="text" id="input">
+            <button onclick="calcular(input.value)">Calcular</button>
+            <div id="SalarioA"></div>
+            <div id="percentual"></div>
+            <div id="Salariovalor"></div>
+            <div id="Novosalario"></div>
+        </div>
+        <script>
+            function calcular(s){
+                function salarioAumento(v){
+                    valor = s * v;
+                    return valor += s;
+                }
+                if(s <= 280){
+                    document.getElementById("SalarioA").innerHTML = "Salário antes do reajuste: R$ " + s;
+                    document.getElementById("percentual").innerHTML = "Percentual de aumento aplicado: 20%";
+                    document.getElementById("Salariovalor").innerHTML = "Valor do aumento aplicado: R$ " + (s * 0.20);
+                    document.getElementById("Novosalario").innerHTML = "Novo salário, após o aumento: R$ " + salarioAumento(0.20);
+                }
+                else if(s > 280 && s <= 700){
+                    document.getElementById("SalarioA").innerHTML = "Salário antes do reajuste: R$ " + s;
+                    document.getElementById("percentual").innerHTML = "Percentual de aumento aplicado: 15%";
+                    document.getElementById("Salariovalor").innerHTML = "Valor do aumento aplicado: R$ " + (s * 0.15);
+                    document.getElementById("Novosalario").innerHTML = "Novo salário, após o aumento: R$ " + salarioAumento(0.15);
+                }
+                else if(s > 700 && s <= 1500){
+                    document.getElementById("SalarioA").innerHTML = "Salário antes do reajuste: R$ " + s;
+                    document.getElementById("percentual").innerHTML = "Percentual de aumento aplicado: 10%";
+                    document.getElementById("Salariovalor").innerHTML = "Valor do aumento aplicado: R$ " + (s * 0.10);
+                    
+                    document.getElementById("Novosalario").innerHTML = "Novo salário, após o aumento: R$ " + salarioAumento(0.10);
+                }
+                else if(s > 1500){
+                    document.getElementById("SalarioA").innerHTML = "Salário antes do reajuste: R$ " + s;
+                    document.getElementById("percentual").innerHTML = "Percentual de aumento aplicado: 5%";
+                    document.getElementById("Salariovalor").innerHTML = "Valor do aumento aplicado: R$ " + (s * 0.05);
+                    document.getElementById("Novosalario").innerHTML = "Novo salário, após o aumento: R$ " + salarioAumento(0.05);
+                }
+            }
+        </script>
+    </body>
+</html>
