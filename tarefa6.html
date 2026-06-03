@@ -10,13 +10,11 @@
         <div id="numeros">Números: </div>
         <script>
             function verificar(texto){
-                for(i = 0; i < texto.length; i++){
-                    let alfabeto = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                    if((alfabeto.indexOf(texto[i])) != -1){
-                        document.getElementById("letra").innerHTML += texto[i] + " ";
-                    } else {
-                        document.getElementById("numeros").innerHTML += texto[i] + " ";
-                    }
+                let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                if(alphabet.includes(texto)){
+                    document.getElementById("letra").innerHTML += texto + " ";
+                } else if(!isNaN(texto) && texto.trim() !== ""){
+                    document.getElementById("numeros").innerHTML += texto + " ";
                 }
             }
         </script>
