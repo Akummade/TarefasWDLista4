@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <input type="text" id="input" placeholder="Digite um texto">
+        <button onclick="verificar(input.value)">Verificar</button>
+        <div id="letra">Letras: </div>
+        <div id="numeros">Números: </div>
+        <script>
+            function verificar(texto){
+                for(i = 0; i < texto.length; i++){
+                    let alfabeto = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    if((alfabeto.indexOf(texto[i])) != -1){
+                        document.getElementById("letra").innerHTML += texto[i] + " ";
+                    } else {
+                        document.getElementById("numeros").innerHTML += texto[i] + " ";
+                    }
+                }
+            }
+        </script>
+    </body>
+    </body>
+</html> 
