@@ -1,0 +1,196 @@
+<html>
+    <head>
+    <title>Calculadora</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    integrity="sha384-
+    PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+        <style>
+        .calculadora {
+            margin-top: 40px;
+        border: solid 1px #000;
+        padding: 20px;
+        background-color: #2E2E2E;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px #000;
+        }
+
+        .btn {
+        width: 60px;
+        height: 50px;
+        margin: 5px;
+        box-shadow: 1px 1px 1px #000;
+        }
+
+        .clear {
+        width: 130px;
+        }
+
+        .enter {
+        height: 110px;
+        }
+
+        .zero {
+        width: 130px;
+        }
+
+        .resultado {
+        text-align: right;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: solid 1px #000;
+        box-shadow: 1px 1px 1px #000;
+        }
+
+        </style>
+    </head>
+
+    <body style="background: #D9D9D9">
+
+        <div class="container">
+        <div class="row">
+        <div class="col d-flex justify-content-center">
+        <br />
+
+        <div class="calculadora">
+        <input type="text" id="resultado" class="form-control resultado" placeholder="0" readonly />
+
+        <div class="row">
+
+        <button type="button" class="btn btn-dark btn-lg clear font-weight-
+        light">C</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-light">/</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light">x</button>
+
+        </div>
+
+        <div class="row">
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n7">7</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n8">8</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n9">9</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-light">-</button>
+        </div>
+
+        <div class="row">
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n4">4</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n5">5</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n6">6</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light">+</button>
+
+        </div>
+
+        <div class="row">
+        <button type="button" class="btn btn-dark btn-lg font-weight-light" id="n1">1</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n2">2</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-
+        light" id="n3">3</button>
+
+        <button type="button" class="btn btn-dark btn-lg enter">=</button>
+        </div>
+        <div class="row" style="margin-top: -60px">
+
+        <button type="button" class="btn btn-dark zero btn-lg font-weight-
+        light" id="n0">0</button>
+
+        <button type="button" class="btn btn-dark btn-lg font-weight-light">.</button>
+        </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+        <script>
+
+    let visor = document.getElementById("resultado");
+
+    function inserir(valor) {
+        visor.value += valor;
+    }
+
+    function limpar() {
+        visor.value = "";
+    }
+
+    function calcular() {
+        try {
+            let expressao = visor.value.replace(/x/g, "*");
+            visor.value = eval(expressao);
+        } catch {
+            visor.value = "Erro";
+        }
+    }
+
+    document.getElementById("n0").onclick = () => inserir("0");
+    document.getElementById("n1").onclick = () => inserir("1");
+    document.getElementById("n2").onclick = () => inserir("2");
+    document.getElementById("n3").onclick = () => inserir("3");
+    document.getElementById("n4").onclick = () => inserir("4");
+    document.getElementById("n5").onclick = () => inserir("5");
+    document.getElementById("n6").onclick = () => inserir("6");
+    document.getElementById("n7").onclick = () => inserir("7");
+    document.getElementById("n8").onclick = () => inserir("8");
+    document.getElementById("n9").onclick = () => inserir("9");
+
+    document.querySelectorAll(".btn").forEach(botao => {
+
+        let texto = botao.innerText;
+
+        if (texto === "+") {
+            botao.onclick = () => inserir("+");
+        }
+
+        if (texto === "-") {
+            botao.onclick = () => inserir("-");
+        }
+
+        if (texto === "/") {
+            botao.onclick = () => inserir("/");
+        }
+
+        if (texto === "x") {
+            botao.onclick = () => inserir("x");
+        }
+
+        if (texto === ".") {
+            botao.onclick = () => inserir(".");
+        }
+
+        if (texto === "C") {
+            botao.onclick = limpar;
+        }
+
+        if (texto === "=") {
+            botao.onclick = calcular;
+        }
+
+    });
+
+</script>
+    </body>
+
+</html>
