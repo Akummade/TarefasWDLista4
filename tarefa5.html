@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" id="input">
+            <button onclick="interpretar(input.value)">Calcular</button>
+            <div id="Data"></div>
+            <script>
+                function interpretar(d){
+                    let data = d.split("/");
+                    let dia = parseInt(data[0]);    
+                    let mes = parseInt(data[1]);
+                    let ano = parseInt(data[2]);
+                    let listames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                    mes = listames[mes - 1];
+                    document.getElementById("Data").innerHTML = dia + " de " + mes + " de " + ano;
+                }
+            </script>
+    </body>
+</html>
